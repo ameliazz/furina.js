@@ -8,6 +8,7 @@ const UnknownCommandResponse = new Command({
     run(_, ...args) {
         log(
             `Unknown Command: '${args[0]}'. Run the help command to find out all the available commands`,
+            1,
         )
     },
 })
