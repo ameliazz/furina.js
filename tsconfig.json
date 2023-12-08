@@ -1,0 +1,30 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ES2022",
+        "lib": ["ES6", "ES2022"],
+        "rootDir": "./source",
+        "outDir": "./dist",
+        "removeComments": true,
+        "strict": true,
+        "typeRoots": ["./source/@types/*.d", "./node_modules/@types"],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false,
+        "baseUrl": "./source",
+        "paths": {
+            "@/*": ["*"]
+        }
+    },
+    "ts-node": {
+        "esm": true
+    },
+    "include": ["./source/**/*"],
+    "exclude": ["build", "node_modules", "package-lock.json", "package.json"]
+}

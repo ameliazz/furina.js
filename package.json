@@ -1,0 +1,29 @@
+{
+    "name": "furina.js",
+    "version": "1.0.0",
+    "license": "LGPL-3.0-only",
+    "description": "Your ultimate solution for node.js command line programs.",
+    "keywords": [
+        "parser",
+        "cli",
+        "args",
+        "argv"
+    ],
+    "author": "Amélia Ribeiro <its.amelina@proton.me> (https://ameliadev.tech/)",
+    "repository": "https://github.com/Canary2000/furina.js.git",
+    "type": "module",
+    "main": "source/index.ts",
+    "publishConfig": {
+        "main": "dist/index.js"
+    },
+    "devDependencies": {
+        "@types/node": "^20.10.4",
+        "eslint": "^8.54.0",
+        "prettier": "^3.1.0",
+        "tsc-alias": "^1.8.8",
+        "typescript": "^5.3.2"
+    },
+    "scripts": {
+        "build": "tsc -d --declarationDir dist && tsc-alias"
+    }
+}
