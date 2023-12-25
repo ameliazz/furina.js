@@ -1,11 +1,17 @@
 import Collection from '@/structures/Collection.js'
 import Command from '@/structures/Command.js'
-import Responses from './commands/Responses.js'
+import Responses from '@/commands/Responses.js'
+import Defaults from '@/commands/defaults.js'
 
 class Furina {
     name: string
     version: string
-    commands: Collection<Command> = new Collection('commands')
+    commands: Collection<Command> = new Collection(
+        'commands',
+        Defaults.map((responseCommand) => {
+            return [responseCommand.name, responseCommand]
+        }),
+    )
     responses: Collection<Command> = new Collection(
         'responses',
         Responses.map((responseCommand) => {
@@ -29,7 +35,11 @@ class Furina {
         const command = this.commands.get(commandName)
 
         if (!command) {
-            this.responses.get('@unknown_command')?.run([], commandName)
+            this.responses.get('@unknown_command')?.run({
+                manager: this,
+                args: [commandName],
+            })
+
             return
         }
 
@@ -54,7 +64,11 @@ class Furina {
             command.options
         }
 
-        command.run(options, ...commonArguments)
+        command.run({
+            manager: this,
+            options,
+            args: commonArguments,
+        })
     }
 }
 

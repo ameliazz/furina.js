@@ -6,13 +6,17 @@ class Collection<V> extends Map<PropertyKey, V> {
         this.name = name
     }
 
-    all(format: 'JSON' | 'default' = 'default') {
+    all(format: 'JSON' | 'default' = 'default'): string | any[] | object {
         switch (format) {
             case 'JSON':
                 return JSON.stringify(Object.fromEntries(this.entries()))
             default:
                 return Object.fromEntries(this.entries())
         }
+    }
+
+    toArray() {
+        return Array.from(this.entries())
     }
 }
 

@@ -9,6 +9,9 @@
         "args",
         "argv"
     ],
+    "bin": {
+        "furina": "test.js"
+    },
     "author": "Amélia Ribeiro <its.amelina@proton.me> (https://ameliadev.tech/)",
     "repository": "https://github.com/Canary2000/furina.js.git",
     "type": "module",

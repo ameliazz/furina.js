@@ -1,3 +1,5 @@
+import { CommandOption, CommandData, RunData } from '@/@types/Command'
+
 class Command {
     name: string
     description: string
@@ -16,9 +18,13 @@ class Command {
         })
     }
 
-    run(options?: { name: string; value: unknown }[], ...args: unknown[]) {
-        options = options?.filter((option) => this.options?.[option.name])
-        this.#raw.run(options, ...args)
+    run(data: RunData) {
+        this.#raw.run({
+            ...data,
+            options: data.options?.filter(
+                (option) => this.options?.[option.name],
+            ),
+        })
     }
 }
 

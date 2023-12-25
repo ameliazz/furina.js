@@ -5,9 +5,9 @@ const UnknownCommandResponse = new Command({
     name: '@unknown_command',
     description: '',
     options: [],
-    run(_, ...args) {
+    run(data) {
         log(
-            `Unknown Command: '${args[0]}'. Run the help command to find out all the available commands`,
+            `Unknown Command: '${data.args[0]}'. Run the help command to find out all the available commands`,
             1,
         )
     },
